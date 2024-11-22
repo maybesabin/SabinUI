@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-
 import App from "@/App";
 import Input from "@/SabinUI/Inputs/Inputs";
 import Buttons from "@/SabinUI/Buttons/Buttons";
-import GettingStarted from "@/GettingStarted";
+import Introduction from "@/Introduction";
+import HowToUse from "@/HowToUse";
 
 type ComponentMap = {
     [key: string]: JSX.Element;
@@ -33,7 +34,8 @@ const AppRoutes = () => {
             <Routes>
                 <Route path="/" element={<App />}>
                     <Route index element={<div>Home</div>} />
-                    <Route path="/gettingstarted" element={<GettingStarted />} />
+                    <Route path="/introduction" element={<Introduction />} />
+                    <Route path="/howtouse" element={<HowToUse />} />
                     <Route path="/components/:componentName" element={<ComponentPage />} />
                 </Route>
             </Routes>

@@ -1,4 +1,4 @@
-import Introduction from "./components/Introduction";
+import Introduction from "./components/Description";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { ThemeProvider } from "./components/theme-provider";

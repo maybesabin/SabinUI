@@ -7,7 +7,6 @@ const Sidebar = () => {
                 <div className="flex flex-col items-start gap-3">
                     <h1 className='text-[1rem] font-semibold'>Sidebar</h1>
                     <ul className="flex flex-col text-[0.85rem] items-start gap-2">
-                        <li className="hover:underline cursor-pointer"><Link to={"/gettingstarted"}>Getting Started</Link></li>
                         <li className="hover:underline cursor-pointer"><Link to={"/introduction"}>Introduction</Link></li>
                         <li className="hover:underline cursor-pointer"><Link to={"/howtouse"}>How to use?</Link></li>
                     </ul>
