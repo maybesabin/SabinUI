@@ -47,7 +47,7 @@ const InputForm = () => {
                     <h3 className="font-medium text-[0.85rem]">Code</h3>
                 </div>
             </div>
-            <div className={`w-full border min-h-72 relative flex items-center justify-center rounded-lg`}>
+            <div className={`w-full border min-h-72 py-6 relative flex items-center justify-center rounded-lg`}>
                 {
                     isActive == "preview" ?
                         <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
@@ -81,7 +81,7 @@ const InputForm = () => {
                                 <path d="M14.0247 8.61921C18.8667 11.3806 21.8855 15.1701 20.7673 17.0833C19.649 18.9965 14.8173 18.3088 9.97531 15.5474C5.13329 12.786 2.11455 8.99648 3.23277 7.08331C4.35098 5.17014 9.18271 5.85779 14.0247 8.61921Z" stroke="currentColor" strokeWidth="1.5" />
                                 <path d="M13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5C12.8284 10.5 13.5 11.1716 13.5 12Z" stroke="currentColor" strokeWidth="1.5" />
                             </svg>
-                            <div className="p-6 text-[0.85rem] w-[75%] overflow-x-hidden">
+                            <div className="p-6 text-[0.85rem] w-auto overflow-x-hidden">
                                 <SyntaxHighlighter language="javascript" style={theme == "dark" ? atomOneDark : atomOneLight} wrapLines={true} lineProps={{ style: { whiteSpace: 'pre-wrap' } }} customStyle={{
                                     whiteSpace: 'pre-wrap',
                                     padding: '15px',

@@ -7,7 +7,11 @@ const Description = () => {
 
     if (path[path.length - 1] === "howtouse") {
         componentName = "How to use?";
-    } else {
+    }
+    else if (path[path.length - 1] === "") {
+        componentName = "Introduction";
+    }
+    else {
         componentName = path[path.length - 1]?.replace(/-/g, ' ') || "Home";
     }
 

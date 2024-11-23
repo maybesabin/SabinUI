@@ -4,6 +4,9 @@ import Input from "@/SabinUI/Inputs/Inputs";
 import Buttons from "@/SabinUI/Buttons/Buttons";
 import Introduction from "@/Introduction";
 import HowToUse from "@/HowToUse";
+import Separator from "@/SabinUI/Separator/Separator";
+import Card from "@/SabinUI/Card/Card";
+import Skeletons from "@/SabinUI/Skeleton/Skeletons";
 
 type ComponentMap = {
     [key: string]: JSX.Element;
@@ -13,6 +16,9 @@ type ComponentMap = {
 const components: ComponentMap = {
     button: <Buttons />,
     input: <Input />,
+    separator: <Separator />,
+    card: <Card />,
+    skeleton: <Skeletons />
 };
 
 
@@ -33,8 +39,7 @@ const AppRoutes = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<App />}>
-                    <Route index element={<div>Home</div>} />
-                    <Route path="/introduction" element={<Introduction />} />
+                    <Route index element={<Introduction />} />
                     <Route path="/howtouse" element={<HowToUse />} />
                     <Route path="/components/:componentName" element={<ComponentPage />} />
                 </Route>

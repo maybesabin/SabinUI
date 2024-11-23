@@ -3,15 +3,45 @@ import { useState } from "react"
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
 import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
-const confirmButton = () => {
+const Card = () => {
     const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
-    const confirmButton = `<button className="px-5 py-2 rounded-lg text-[0.9rem] text-zinc-100 bg-green-500 hover:bg-green-600 cursor-pointer transition-all">Confirm</button>`
+    const Card =
+        `
+    <div className="flex flex-col items-start gap-8 p-6 border border-[#262626] rounded-lg">
+        <div className="flex flex-col items-start gap-2">
+            <h1 className="text-xl font-semibold">Personal Information</h1>
+            <div className="dark:bg-zinc-800 bg-zinc-200 h-[1px] w-full"></div>
+            <p className="text-[0.85rem] dark:text-zinc-400 text-zinc-700 font-medium">Enter your personal information below.</p>
+        </div>
+
+        <div className="flex flex-col items-start gap-1">
+            <label htmlFor="input" className="text-[0.8rem]">Enter your email</lab
+            <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" 
+            placeholder="sabin@gmail.com" />
+        </div>
+
+        <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
+            <div className="flex flex-col items-start gap-1">
+                <label htmlFor="input">Username</label>
+                <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg" 
+                placeholder="sabin hamal" />
+                <p className="text-xs text-light mt-1 text-zinc-400">
+                Note: You can't change your username.</p>
+            </div>
+            
+            <button className="dark:bg-white bg-black border border-black dark:text-black text-white px-5 py-2 rounded-lg"> Submit
+            </button>
+        </div>
+    </div>
+    `
 
     return (
         <div className="flex w-full flex-col items-start justify-start gap-6">
-
-            <h1 className="text-2xl font-semibold">Confirm Button</h1>
+            <p className="text-[0.85rem] font-medium text-zinc-500 mb-6">
+                A versatile container for grouping related content and actions, featuring a sleek design to showcase information effectively in a compact format
+            </p>
+            <h1 className="text-2xl font-semibold">Card</h1>
 
             <div className="flex items-center gap-4">
                 <div onClick={() => setIsActive("preview")} className={`${isActive == "preview" ? "dark:bg-zinc-900 bg-zinc-100" : ""} flex items-center gap-3 border rounded-lg px-4 py-2 dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-all cursor-pointer`}>
@@ -35,12 +65,37 @@ const confirmButton = () => {
             </div>
             <div className={`w-full border min-h-72 py-6 relative flex items-center justify-center rounded-lg`}>
                 {
-                    isActive == "preview" ? <button className="px-5 py-2 rounded-lg text-[0.9rem] text-zinc-100 bg-green-500 hover:bg-green-600 cursor-pointer transition-all">Confirm</button>
+                    isActive == "preview" ?
+                        <div className="flex flex-col items-start gap-8 p-6 border border-[#262626] rounded-lg">
+                            <div className="flex flex-col items-start gap-2">
+                                <h1 className="text-xl font-semibold">Personal Information</h1>
+                                <div className="dark:bg-zinc-800 bg-zinc-200 h-[1px] w-full"></div>
+                                <p className="text-[0.85rem] dark:text-zinc-400 text-zinc-700 font-medium">Enter your personal information below.</p>
+                            </div>
 
+                            <div className="flex flex-col items-start gap-1">
+                                <label htmlFor="input" className="text-[0.8rem]">Enter your email</label>
+
+                                <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" placeholder="sabin@gmail.com" />
+                            </div>
+
+
+                            <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
+                                <div className="flex flex-col items-start gap-1">
+                                    <label htmlFor="input">Username</label>
+                                    <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg" placeholder="sabin hamal" />
+                                    <p className="text-xs text-light mt-1 text-zinc-400">Note: You can't change your username.</p>
+                                </div>
+
+                                <button className="dark:bg-white bg-black border border-black dark:text-black text-white px-5 py-2 rounded-lg"> Submit
+                                </button>
+                            </div>
+
+                        </div>
                         :
                         <>
                             <svg xmlns="http://www.w3.org/2000/svg" onClick={() => {
-                                const updatedButton = confirmButton.replace("className", "class");
+                                const updatedButton = Card.replace("className", "class");
                                 navigator.clipboard.writeText(updatedButton);
                             }}
                                 className="cursor-pointer absolute right-6 top-6 hover:scale-105" viewBox="0 0 24 24" width="24" height="24" fill="none">
@@ -49,7 +104,7 @@ const confirmButton = () => {
                                 <path d="M11.7324 12V16C11.7324 17.1046 10.837 18 9.73244 18C8.99215 18 8.34581 17.5978 8 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                                 <path d="M18.4668 13C18.121 12.4022 17.4747 12 16.7344 12H16.2344C15.4059 12 14.7344 12.6716 14.7344 13.5C14.7344 14.3284 15.4059 15 16.2344 15H17.2344C18.0628 15 18.7344 15.6716 18.7344 16.5C18.7344 17.3284 18.0628 18 17.2344 18H16.7344C15.9941 18 15.3477 17.5978 15.0019 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                             </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" onClick={() => navigator.clipboard.writeText(confirmButton)} className="cursor-pointer absolute right-16 top-6 hover:scale-105" viewBox="0 0 24 24" width="24" height="24" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" onClick={() => navigator.clipboard.writeText(Card)} className="cursor-pointer absolute right-16 top-6 hover:scale-105" viewBox="0 0 24 24" width="24" height="24" fill="none">
                                 <title>React JS</title>
                                 <path d="M8.00001 12C8.00001 6.47715 9.79087 2 12 2C14.2091 2 16 6.47715 16 12C16 17.5228 14.2091 22 12 22C9.79087 22 8.00001 17.5228 8.00001 12Z" stroke="currentColor" strokeWidth="1.5" />
                                 <path d="M9.97531 8.61921C14.8173 5.85779 19.649 5.17014 20.7673 7.08331C21.8855 8.99648 18.8667 12.786 14.0247 15.5474C9.18271 18.3088 4.35098 18.9965 3.23277 17.0833C2.11455 15.1701 5.13329 11.3806 9.97531 8.61921Z" stroke="currentColor" strokeWidth="1.5" />
@@ -63,7 +118,7 @@ const confirmButton = () => {
                                     borderRadius: '7px',
                                     overflowX: 'hidden'
                                 }}>
-                                    {confirmButton}
+                                    {Card}
                                 </SyntaxHighlighter>
                             </div>
                         </>
@@ -73,4 +128,4 @@ const confirmButton = () => {
     )
 }
 
-export default confirmButton
+export default Card
