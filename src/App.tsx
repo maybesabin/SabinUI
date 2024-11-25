@@ -11,8 +11,8 @@ const App = () => {
         <div className="xl:w-[95rem] w-full flex flex-col items-start justify-start">
           <Navbar />
           <div className="flex pt-12 items-start justify-start w-full border">
-            <div className="w-1/5 md:flex hidden"><Sidebar /></div>
-            <div className="min-h-[100vh] flex flex-col items-start justify-start gap-6 border border-b-0 border-r-0 border-t-0 md:w-4/5 py-6 md:px-12 px-4">
+            <div className="w-1/5 lg:flex hidden"><Sidebar /></div>
+            <div className="min-h-[100vh] flex flex-col items-start justify-start gap-6 border border-b-0 border-r-0 border-t-0 lg:w-4/5 py-6 lg:px-12 px-4">
               <Introduction />
               <Outlet />
             </div>

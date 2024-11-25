@@ -3,51 +3,42 @@ import { useState } from "react"
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
 import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Check, Clipboard } from "lucide-react"
+import jordan4 from "../../assets/images/jordan4.png"
 
-const Card = () => {
+const GradientCard = () => {
     const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () => {
-        navigator.clipboard.writeText(Card)
+        navigator.clipboard.writeText(GradientCard)
         setIsCopied(true);
         setTimeout(() => {
             setIsCopied(false);
         }, 2000)
     }
-    const Card =
+    const GradientCard =
         `
-    <div className="flex flex-col items-start gap-8 p-6 border border-[#262626] rounded-lg">
-        <div className="flex flex-col items-start gap-2">
-            <h1 className="text-xl font-semibold">Personal Information</h1>
-            <div className="dark:bg-zinc-800 bg-zinc-200 h-[1px] w-full"></div>
-            <p className="text-[0.85rem] dark:text-zinc-400 text-zinc-700 font-medium">Enter your personal information below.</p>
-        </div>
+        <div className="relative p-2 bg-gradient-to-r from-blue-900 via-purple-600 to-pink-600 
+            rounded-xl hover:shadow-[0_0_20px_rgba(139,92,246,0.7)] transition-shadow duration-500 ease-in-out">
 
-        <div className="flex flex-col items-start gap-1">
-            <label htmlFor="input" className="text-[0.8rem]">Enter your email</label>
-            <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" 
-            placeholder="sabin@gmail.com" />
-        </div>
-
-        <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
-            <div className="flex flex-col items-start gap-1">
-                <label htmlFor="input">Username</label>
-                <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg" 
-                placeholder="sabin hamal" />
-                <p className="text-xs text-light mt-1 text-zinc-400">
-                Note: You can't change your username.</p>
+            <div className="border max-w-96 p-6 rounded-lg flex flex-col items-center gap-2 bg-black">
+                <img src={jordan4} className="scale-x-[-1] w-64 " alt="" />
+                <div className="w-full flex flex-col items-start gap-4">
+                    <h1 className="text-3xl font-semibold">Jordan 4</h1>
+                    <p className="text-[0.85rem] text-justify text-zinc-400">
+                        The Air Jordan 4, released in 1989, is a classic basketball sneaker designed by Tinker Hatfield. Known for its iconic mesh panels, 
+                        wing-shaped lace supports, and visible Air cushioning, it combines performance with style. Popularized by Michael Jordan and 
+                        re-released in numerous colorways, the Jordan 4 remains a cultural and fashion staple.
+                    </p>
+                </div>
             </div>
             
-            <button className="dark:bg-white bg-black border border-black dark:text-black text-white px-5 py-2 rounded-lg"> Submit
-            </button>
         </div>
-    </div>
     `
 
     return (
         <div className="flex w-full flex-col items-start justify-start gap-6">
-            <h1 className="text-2xl font-semibold">Card</h1>
+            <h1 className="text-2xl font-semibold">Gradient Card</h1>
 
             <div className="flex items-center gap-4">
                 <div onClick={() => setIsActive("preview")} className={`${isActive == "preview" ? "dark:bg-zinc-900 bg-zinc-100" : ""} flex items-center gap-3 border rounded-lg px-4 py-2 dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-all cursor-pointer`}>
@@ -72,32 +63,18 @@ const Card = () => {
             <div className={`w-full border min-h-72 py-6 relative flex items-center justify-center rounded-lg`}>
                 {
                     isActive == "preview" ?
-                        <div className="flex flex-col items-start gap-8 p-6 border border-[#262626] rounded-lg">
-                            <div className="flex flex-col items-start gap-2">
-                                <h1 className="text-xl font-semibold">Personal Information</h1>
-                                <div className="dark:bg-zinc-800 bg-zinc-200 h-[1px] w-full"></div>
-                                <p className="text-[0.85rem] dark:text-zinc-400 text-zinc-700 font-medium">Enter your personal information below.</p>
-                            </div>
-
-                            <div className="flex flex-col items-start gap-1">
-                                <label htmlFor="input" className="text-[0.8rem]">Enter your email</label>
-
-                                <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" placeholder="sabin@gmail.com" />
-                            </div>
-
-
-                            <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
-                                <div className="flex flex-col items-start gap-1">
-                                    <label htmlFor="input">Username</label>
-                                    <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg" placeholder="sabin hamal" />
-                                    <p className="text-xs text-light mt-1 text-zinc-400">Note: You can't change your username.</p>
+                        <div className="relative p-2 bg-gradient-to-r from-blue-900 via-purple-600 to-pink-600 rounded-xl hover:shadow-[0_0_20px_rgba(139,92,246,0.7)] transition-shadow duration-500 ease-in-out">
+                            <div className="border max-w-96 p-6 rounded-lg flex flex-col items-center gap-2 bg-black">
+                                <img src={jordan4} className="scale-x-[-1] w-64 " alt="" />
+                                <div className="w-full flex flex-col items-start gap-4">
+                                    <h1 className="text-3xl font-semibold">Jordan 4</h1>
+                                    <p className="text-[0.85rem] text-justify text-zinc-400">
+                                        The Air Jordan 4, released in 1989, is a classic basketball sneaker designed by Tinker Hatfield. Known for its iconic mesh panels, wing-shaped lace supports, and visible Air cushioning, it combines performance with style. Popularized by Michael Jordan and re-released in numerous colorways, the Jordan 4 remains a cultural and fashion staple.
+                                    </p>
                                 </div>
-
-                                <button className="dark:bg-white bg-black border border-black dark:text-black text-white px-5 py-2 rounded-lg"> Submit
-                                </button>
                             </div>
-
                         </div>
+
                         :
                         <>
                             {!isCopied ? <Clipboard onClick={handleClick} className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />
@@ -110,7 +87,7 @@ const Card = () => {
                                     borderRadius: '7px',
                                     overflowX: 'hidden'
                                 }}>
-                                    {Card}
+                                    {GradientCard}
                                 </SyntaxHighlighter>
                             </div>
                         </>
@@ -120,4 +97,4 @@ const Card = () => {
     )
 }
 
-export default Card
+export default GradientCard

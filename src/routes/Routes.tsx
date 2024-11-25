@@ -5,8 +5,9 @@ import Buttons from "@/SabinUI/Buttons/Buttons";
 import Introduction from "@/Introduction";
 import HowToUse from "@/HowToUse";
 import Separator from "@/SabinUI/Separator/Separator";
-import Card from "@/SabinUI/Card/Card";
 import Skeletons from "@/SabinUI/Skeleton/Skeletons";
+import Cards from "@/SabinUI/Card/Cards";
+import BentoGrid from "../SabinUI/Bento Grid/BentoGrid"
 
 type ComponentMap = {
     [key: string]: JSX.Element;
@@ -17,8 +18,9 @@ const components: ComponentMap = {
     button: <Buttons />,
     input: <Input />,
     separator: <Separator />,
-    card: <Card />,
-    skeleton: <Skeletons />
+    card: <Cards />,
+    skeleton: <Skeletons />,
+    bentogrid: <BentoGrid />
 };
 
 

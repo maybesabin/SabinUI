@@ -7,11 +7,11 @@ const Description = () => {
 
     if (path[path.length - 1] === "howtouse") {
         componentName = "How to use?";
-    }
-    else if (path[path.length - 1] === "") {
+    } else if (path[path.length - 1] === "") {
         componentName = "Introduction";
-    }
-    else {
+    } else if (path[path.length - 1] === "bentogrid") {
+        componentName = "Bento Grid";
+    } else {
         componentName = path[path.length - 1]?.replace(/-/g, ' ') || "Home";
     }
 
