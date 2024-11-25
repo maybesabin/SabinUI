@@ -19,69 +19,58 @@ const BentoGrid = () => {
         `
         <div className="lg:max-w-5xl w-full flex flex-col items-start justify-start gap-4 px-6">
 
-            <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
-                <div className="p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border 
-                    rounded-lg">
-                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg"></div>
-                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
-                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque 
-                    consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                </div>
-                <div className="p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border 
-                    rounded-lg">
-                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg"></div>
-                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
-                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque 
-                    consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                </div>
-                <div className="p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border 
-                    rounded-lg">
-                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg"></div>
-                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
-                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque 
-                    consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                </div>
-            </div>
-
-            <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
-                <div className="p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border 
-                rounded-lg">
-                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-52 w-full rounded-lg">
-                    </div>
-                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
-                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? 
-                    Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                </div>
-                <div className="p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border 
-                rounded-lg">
-                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
-                    </div>
-                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
-                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? 
-                    Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                </div>
-            </div>
-
-            <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
-                <div className="p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border 
-                rounded-lg">
-                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
-                    </div>
-                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
-                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? 
-                    Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
+                            <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
+                                <div className="p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border rounded-lg">
+                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
+                                    </div>
+                                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
+                                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
                                 </div>
-                <div className="p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border 
-                rounded-lg">
-                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-52 w-full rounded-lg">
-                    </div>
-                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
-                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? 
-                    Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                </div>
-            </div>
+                                <div className="p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border rounded-lg">
+                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
+                                    </div>
+                                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
+                                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
+                                </div>
+                                <div className="p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border rounded-lg">
+                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
+                                    </div>
+                                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
+                                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
+                                </div>
+                            </div>
 
-        </div>
+                            <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
+                                <div className="p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
+                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-52 w-full rounded-lg">
+                                    </div>
+                                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
+                                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
+                                </div>
+                                <div className="p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
+                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
+                                    </div>
+                                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
+                                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
+                                </div>
+                            </div>
+
+                            <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
+                                <div className="p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
+                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
+                                    </div>
+                                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
+                                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
+                                </div>
+                                <div className="p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
+                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-52 w-full rounded-lg">
+                                    </div>
+                                    <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
+                                    <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
+                                </div>
+                            </div>
+
+                        </div>
 
     `
 
@@ -142,7 +131,7 @@ const BentoGrid = () => {
                                     <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
                                     <p className="text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
                                 </div>
-                                <div className="p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
+                                <div className="p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
                                     <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
                                     </div>
                                     <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
@@ -151,7 +140,7 @@ const BentoGrid = () => {
                             </div>
 
                             <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
-                                <div className="p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
+                                <div className="p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
                                     <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
                                     </div>
                                     <h1 className="text-xl font-semibold">Lorem ipsum dolor</h1>
