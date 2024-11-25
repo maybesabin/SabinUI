@@ -3,26 +3,43 @@ import { Input } from "./ui/input"
 import logoDark from "../assets/images/logo-dark.png"
 import logoLight from "../assets/images/logo-white.png"
 import { useTheme } from "./theme-provider";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import Sidebar from "./Sidebar";
+import { Separator } from "./ui/separator";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const { theme } = useTheme();
-
+    const [toggleNavbar, setToggleNavbar] = useState(false);
     return (
         <div className="w-full flex items-center justify-center fixed top-0 right-0 bg-background z-50">
             <div className="flex items-center justify-between xl:w-[95rem] w-full border px-4 py-2">
                 <div className="flex items-center gap-3">
-                    <img src={theme == "dark" ? logoLight : logoDark} width={'25px'} alt="" />
-                    <h1 className="text-lg mr-4 font-bold">SabinUI</h1>
-                    <ul className="flex items-center font-medium gap-6">
+                    <Menu onClick={() => setToggleNavbar(!toggleNavbar)} className="md:hidden flex" />
+                    <Link to={'/'}><img src={theme == "dark" ? logoLight : logoDark} className="md:flex hidden cursor-pointer" width={'25px'} alt="" /></Link>
+                    <h1 className="md:flex cursor-pointer hidden text-lg mr-4 font-bold">
+                        <Link to={'/'}>SabinUI</Link>
+                    </h1>
+                    <ul className="md:flex hidden items-center font-medium gap-6">
                         <li className="text-sm text-muted-foreground hover:text-white cursor-pointer transition-all">Docs</li>
                         <li className="text-sm text-muted-foreground hover:text-white cursor-pointer transition-all">Components</li>
                     </ul>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Input className="w-72" placeholder="Search component..." />
+                    <Input className="md:w-72 text-sm" placeholder="Search component..." />
                     <ModeToggle />
                 </div>
             </div>
+
+            {/* Mobile Navbar  */}
+            <div className={`h-screen bg-black/40 backdrop-blur-md fixed top-0 left-0 w-full ${toggleNavbar ? "translate-y-0" : "translate-y-full"} transform transition-transform duration-500 ease-in-out flex flex-col items-center justify-center gap-6`}
+            >
+                <X onClick={() => setToggleNavbar(!toggleNavbar)} className="md:hidden absolute top-4 left-4" />
+                <Separator className="absolute top-14 w-full" />
+                <Sidebar />
+            </div>
+
         </div>
     )
 }

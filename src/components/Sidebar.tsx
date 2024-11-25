@@ -6,7 +6,7 @@ const Sidebar = () => {
     const sortedComponents = components.sort();
 
     return (
-        <div className='min-h-[100vh] pl-12 md:flex hidden flex-col items-start gap-6 md:w-1/5 p-6'>
+        <div className='md:min-h-[100vh] h-full md:pt-6 pt-[5rem] md:pl-12 flex flex-col items-start justify-start gap-6 md:w-1/5 w-full p-6'>
             <div className="flex flex-col items-start gap-6 fixed">
                 <div className="flex flex-col items-start gap-3">
                     <h1 className='text-[1rem] font-semibold'>Sidebar</h1>

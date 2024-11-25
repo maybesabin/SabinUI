@@ -2,10 +2,19 @@ import { useTheme } from "@/components/theme-provider"
 import { useState } from "react"
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
 import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Check, Clipboard } from "lucide-react"
 
 const InputWithButton = () => {
     const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
+    const [isCopied, setIsCopied] = useState(false);
+    const handleClick = () => {
+        navigator.clipboard.writeText(InputWithButton)
+        setIsCopied(true);
+        setTimeout(() => {
+            setIsCopied(false);
+        }, 2000)
+    }
     const InputWithButton =
         `
     <div className="flex items-center gap-2 text-[0.85rem]">
@@ -52,23 +61,9 @@ const InputWithButton = () => {
 
                         :
                         <>
-                            <svg xmlns="http://www.w3.org/2000/svg" onClick={() => {
-                                const updatedButton = InputWithButton.replace("className", "class");
-                                navigator.clipboard.writeText(updatedButton);
-                            }}
-                                className="cursor-pointer absolute right-6 top-6 hover:scale-105" viewBox="0 0 24 24" width="24" height="24" fill="none">
-                                <title>Vanilla JS</title>
-                                <path d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z" stroke="currentColor" strokeWidth="1.5" />
-                                <path d="M11.7324 12V16C11.7324 17.1046 10.837 18 9.73244 18C8.99215 18 8.34581 17.5978 8 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                                <path d="M18.4668 13C18.121 12.4022 17.4747 12 16.7344 12H16.2344C15.4059 12 14.7344 12.6716 14.7344 13.5C14.7344 14.3284 15.4059 15 16.2344 15H17.2344C18.0628 15 18.7344 15.6716 18.7344 16.5C18.7344 17.3284 18.0628 18 17.2344 18H16.7344C15.9941 18 15.3477 17.5978 15.0019 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" onClick={() => navigator.clipboard.writeText(InputWithButton)} className="cursor-pointer absolute right-16 top-6 hover:scale-105" viewBox="0 0 24 24" width="24" height="24" fill="none">
-                                <title>React JS</title>
-                                <path d="M8.00001 12C8.00001 6.47715 9.79087 2 12 2C14.2091 2 16 6.47715 16 12C16 17.5228 14.2091 22 12 22C9.79087 22 8.00001 17.5228 8.00001 12Z" stroke="currentColor" strokeWidth="1.5" />
-                                <path d="M9.97531 8.61921C14.8173 5.85779 19.649 5.17014 20.7673 7.08331C21.8855 8.99648 18.8667 12.786 14.0247 15.5474C9.18271 18.3088 4.35098 18.9965 3.23277 17.0833C2.11455 15.1701 5.13329 11.3806 9.97531 8.61921Z" stroke="currentColor" strokeWidth="1.5" />
-                                <path d="M14.0247 8.61921C18.8667 11.3806 21.8855 15.1701 20.7673 17.0833C19.649 18.9965 14.8173 18.3088 9.97531 15.5474C5.13329 12.786 2.11455 8.99648 3.23277 7.08331C4.35098 5.17014 9.18271 5.85779 14.0247 8.61921Z" stroke="currentColor" strokeWidth="1.5" />
-                                <path d="M13.5 12C13.5 12.8284 12.8284 13.5 12 13.5C11.1716 13.5 10.5 12.8284 10.5 12C10.5 11.1716 11.1716 10.5 12 10.5C12.8284 10.5 13.5 11.1716 13.5 12Z" stroke="currentColor" strokeWidth="1.5" />
-                            </svg>
+                            {!isCopied ? <Clipboard onClick={handleClick} className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />
+                                :
+                                <Check className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />}
                             <div className="p-6 text-[0.85rem] w-auto overflow-x-hidden">
                                 <SyntaxHighlighter language="javascript" style={theme == "dark" ? atomOneDark : atomOneLight} wrapLines={true} lineProps={{ style: { whiteSpace: 'pre-wrap' } }} customStyle={{
                                     whiteSpace: 'pre-wrap',
