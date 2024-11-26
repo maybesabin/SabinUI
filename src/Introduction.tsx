@@ -42,10 +42,10 @@ const Introduction = () => {
 
     return (
         <div className="flex flex-col items-start gap-6">
-            <p className="text-[0.95rem] font-medium text-zinc-500">
+            <p className="text-xs md:text-[0.95rem] font-medium text-zinc-500">
                 Easy, modern, lightweight tailwind components that is supported for both react and vanilla javascript.
             </p>
-            <p className="text-[0.95rem] font-medium text-white">
+            <p className="text-[0.85rem] md:text-[0.95rem] font-medium text-white">
                 This is a collection of reusable components that will fasten your development process.
             </p>
 

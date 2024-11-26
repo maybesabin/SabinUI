@@ -17,7 +17,7 @@ const Description = () => {
 
     return (
         <div className="flex flex-col items-start gap-4">
-            <p className="capitalize flex items-center gap-3 text-muted-foreground text-xl font-medium">
+            <p className="capitalize flex items-center gap-3 text-muted-foreground text-xs md:text-xl font-medium">
                 <span className="text-[0.85rem]">Components</span>{'>'}{' '}
                 <span className="dark:text-white">{componentName}</span>
             </p>
