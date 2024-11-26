@@ -20,7 +20,7 @@ const InputWithLabel = () => {
     <div className="flex flex-col items-start gap-1">
         <label htmlFor="input" className="text-[0.8rem]">Enter your email</label>
         
-        <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 
+        <input type="text" name="input" className="border py-2 px-3 w-72 
         bg-transparent rounded-lg text-[0.85rem]" placeholder="sabin@gmail.com" />
     </div>
     `
@@ -55,7 +55,7 @@ const InputWithLabel = () => {
                     isActive == "preview" ?
                         <div className="flex flex-col items-start gap-1">
                             <label htmlFor="input" className="text-[0.8rem]">Enter your email</label>
-                            <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" placeholder="sabin@gmail.com" />
+                            <input type="text" name="input" className="border py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" placeholder="sabin@gmail.com" />
                         </div>
 
                         :

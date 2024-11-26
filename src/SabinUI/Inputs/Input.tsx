@@ -15,7 +15,7 @@ const Input = () => {
             setIsCopied(false);
         }, 2000)
     }
-    const Input = `<input type="text" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" placeholder="Enter something..." />`
+    const Input = `<input type="text" className="border py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" placeholder="Enter something..." />`
 
     return (
         <div className="flex w-full flex-col items-start justify-start gap-6">
@@ -45,7 +45,7 @@ const Input = () => {
             <div className={`w-full border min-h-72 py-6 relative flex items-center justify-center rounded-lg`}>
                 {
                     isActive == "preview" ?
-                        <input type="text" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" placeholder="Enter something..." />
+                        <input type="text" className="border py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" placeholder="Enter something..." />
 
                         :
                         <>

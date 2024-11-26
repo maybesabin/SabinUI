@@ -1,5 +1,6 @@
 import Card from "./Card"
 import GradientCard from "./GradientCard"
+import HoverCard from "./HoverCard"
 
 const Cards = () => {
 
@@ -10,6 +11,7 @@ const Cards = () => {
             </p>
             <Card />
             <GradientCard />
+            <HoverCard />
         </div>
     )
 }

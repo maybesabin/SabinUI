@@ -4,37 +4,34 @@ import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlig
 import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Check, Clipboard } from "lucide-react"
 
-const InputForm = () => {
+const HoverCard = () => {
     const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () => {
-        navigator.clipboard.writeText(InputForm)
+        navigator.clipboard.writeText(HoverCard)
         setIsCopied(true);
         setTimeout(() => {
             setIsCopied(false);
         }, 2000)
     }
-    const InputForm =
-        `
-    <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
-        <div className="flex flex-col items-start gap-1">
-            <label htmlFor="input">Username</label>
-            <input type="text" name="input" className="border py-2 px-3 w-72 bg-transparent 
-            rounded-lg" placeholder="sabin hamal" />
-            <p className="text-xs text-light mt-1 text-zinc-400">Note: You can't change your username.</p>
+    const HoverCard = `
+    <div className="relative group cursor-pointer flex items-center justify-center min-w-72">
+        <h1 className="text-[0.9rem] group-hover:underline">hover me</h1>
+        <div className="-bottom-24 absolute border flex items-start gap-6 p-4 rounded-lg
+        -translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 
+        scale-90 group-hover:scale-100 transition-all duration-200 ease-in-out delay-500">
+        <div className="bg-zinc-600 rounded-full w-12 h-12"></div>
+            <div className="flex flex-col items-start gap-0">
+                <h1 className="text-xl font-medium">Sabin Hamal</h1>
+                <p className="text-zinc-500 text-xs">Front End Engineer</p>
+            </div>
         </div>
-        
-        <button className="dark:bg-white bg-black border border-black dark:text-black 
-            text-white px-5 py-2 rounded-lg"> Submit
-        </button>
-    </div>
-    `
+    </div>`
 
     return (
         <div className="flex w-full flex-col items-start justify-start gap-6">
-
-            <h1 className="text-2xl font-semibold">Input Form</h1>
+            <h1 className="text-2xl font-semibold">Hover Card</h1>
 
             <div className="flex items-center gap-4">
                 <div onClick={() => setIsActive("preview")} className={`${isActive == "preview" ? "dark:bg-zinc-900 bg-zinc-100" : ""} flex items-center gap-3 border rounded-lg px-4 py-2 dark:hover:bg-zinc-900 hover:bg-zinc-200 transition-all cursor-pointer`}>
@@ -59,18 +56,17 @@ const InputForm = () => {
             <div className={`w-full border min-h-72 py-6 relative flex items-center justify-center rounded-lg`}>
                 {
                     isActive == "preview" ?
-                        <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
-                            <div className="flex flex-col items-start gap-1">
-                                <label htmlFor="input">Username</label>
-                                <input type="text" name="input" className="border py-2 px-3 w-72 bg-transparent rounded-lg" placeholder="sabin hamal" />
-                                <p className="text-xs text-light mt-1 text-zinc-400">Note: You can't change your username.</p>
+                        <div className="relative group cursor-pointer flex items-center justify-center min-w-72">
+                            <h1 className="text-[0.9rem] group-hover:underline">hover me</h1>
+                            <div className="-bottom-24 absolute border flex items-start gap-6 p-4 rounded-lg -translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-200 ease-in-out delay-500"
+                            >
+                                <div className="bg-zinc-600 rounded-full w-12 h-12"></div>
+                                <div className="flex flex-col items-start gap-0">
+                                    <h1 className="text-xl font-medium">Sabin Hamal</h1>
+                                    <p className="text-zinc-500 text-xs">Front End Engineer</p>
+                                </div>
                             </div>
-                            <button className="dark:bg-white bg-black border border-black dark:text-black 
-                            text-white px-5 py-2 rounded-lg">
-                                Submit
-                            </button>
                         </div>
-
                         :
                         <>
                             {!isCopied ? <Clipboard onClick={handleClick} className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />
@@ -83,14 +79,14 @@ const InputForm = () => {
                                     borderRadius: '7px',
                                     overflowX: 'hidden'
                                 }}>
-                                    {InputForm}
+                                    {HoverCard}
                                 </SyntaxHighlighter>
                             </div>
                         </>
                 }
             </div>
-        </div >
+        </div>
     )
 }
 
-export default InputForm
+export default HoverCard

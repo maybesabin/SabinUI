@@ -15,7 +15,7 @@ const primaryButton = () => {
             setIsCopied(false);
         }, 2000)
     }
-    const primaryButton = `<button className="border border-[#262626] px-5 py-2 rounded-full text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-zinc-100 cursor-pointer transition-all">Click Me</button>`
+    const primaryButton = `<button className="border px-5 py-2 rounded-full text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-zinc-100 cursor-pointer transition-all">Click Me</button>`
 
     return (
         <div className="flex w-full flex-col items-start justify-start gap-6">
@@ -44,7 +44,7 @@ const primaryButton = () => {
             </div>
             <div className={`w-full border min-h-72 py-6 relative flex items-center justify-center rounded-lg`}>
                 {
-                    isActive == "preview" ? <button className="border border-[#262626] px-5 py-2 rounded-full text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-[#f4f4f5] cursor-pointer transition-all">Click Me</button>
+                    isActive == "preview" ? <button className="border px-5 py-2 rounded-full text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-[#f4f4f5] cursor-pointer transition-all">Click Me</button>
 
                         :
                         <>

@@ -18,22 +18,20 @@ const GradientCard = () => {
     }
     const GradientCard =
         `
-        <div className="relative p-2 bg-gradient-to-r from-blue-900 via-purple-600 to-pink-600 
-            rounded-xl hover:shadow-[0_0_20px_rgba(139,92,246,0.7)] transition-shadow duration-500 ease-in-out">
-
-            <div className="border max-w-96 p-6 rounded-lg flex flex-col items-center gap-2 bg-black">
-                <img src={jordan4} className="scale-x-[-1] w-64 " alt="" />
-                <div className="w-full flex flex-col items-start gap-4">
-                    <h1 className="text-3xl font-semibold">Jordan 4</h1>
-                    <p className="text-[0.85rem] text-justify text-zinc-400">
-                        The Air Jordan 4, released in 1989, is a classic basketball sneaker designed by Tinker Hatfield. Known for its iconic mesh panels, 
-                        wing-shaped lace supports, and visible Air cushioning, it combines performance with style. Popularized by Michael Jordan and 
-                        re-released in numerous colorways, the Jordan 4 remains a cultural and fashion staple.
-                    </p>
-                </div>
-            </div>
-            
-        </div>
+        <div className="relative p-2 bg-gradient-to-r from-blue-900 via-purple-600 to-pink-600 rounded-xl 
+            hover:shadow-[0_0_20px_rgba(139,92,246,0.7)] transition-shadow duration-500 ease-in-out">
+                            <div className="max-w-96 p-6 rounded-lg flex flex-col items-center gap-2 dark:bg-black bg-white">
+                                <img src={jordan4} className="scale-x-[-1] w-64 " alt="" />
+                                <div className="w-full flex flex-col items-start gap-4">
+                                    <h1 className="text-3xl font-semibold">Jordan 4</h1>
+                                    <p className="text-[0.85rem] text-justify dark:text-zinc-400 text-zinc-800">
+                                        The Air Jordan 4, released in 1989, is a classic basketball sneaker designed by Tinker Hatfield. Known for its iconic mesh panels, 
+                                        wing-shaped lace supports, and visible Air cushioning, it combines performance with style. Popularized by Michael Jordan and 
+                                        re-released in numerous colorways, the Jordan 4 remains a cultural and fashion staple.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
     `
 
     return (
@@ -64,11 +62,11 @@ const GradientCard = () => {
                 {
                     isActive == "preview" ?
                         <div className="relative p-2 bg-gradient-to-r from-blue-900 via-purple-600 to-pink-600 rounded-xl hover:shadow-[0_0_20px_rgba(139,92,246,0.7)] transition-shadow duration-500 ease-in-out">
-                            <div className="border max-w-96 p-6 rounded-lg flex flex-col items-center gap-2 bg-black">
+                            <div className="max-w-96 p-6 rounded-lg flex flex-col items-center gap-2 dark:bg-black bg-white">
                                 <img src={jordan4} className="scale-x-[-1] w-64 " alt="" />
                                 <div className="w-full flex flex-col items-start gap-4">
                                     <h1 className="text-3xl font-semibold">Jordan 4</h1>
-                                    <p className="text-[0.85rem] text-justify text-zinc-400">
+                                    <p className="text-[0.85rem] text-justify dark:text-zinc-400 text-zinc-800">
                                         The Air Jordan 4, released in 1989, is a classic basketball sneaker designed by Tinker Hatfield. Known for its iconic mesh panels, wing-shaped lace supports, and visible Air cushioning, it combines performance with style. Popularized by Michael Jordan and re-released in numerous colorways, the Jordan 4 remains a cultural and fashion staple.
                                     </p>
                                 </div>

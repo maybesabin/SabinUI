@@ -17,32 +17,32 @@ const Card = () => {
     }
     const Card =
         `
-    <div className="flex flex-col items-start gap-8 p-6 border border-[#262626] rounded-lg">
-        <div className="flex flex-col items-start gap-2">
-            <h1 className="text-xl font-semibold">Personal Information</h1>
-            <div className="dark:bg-zinc-800 bg-zinc-200 h-[1px] w-full"></div>
-            <p className="text-[0.85rem] dark:text-zinc-400 text-zinc-700 font-medium">Enter your personal information below.</p>
-        </div>
+                            <div className="flex flex-col items-start gap-8 p-6 border rounded-lg">
+                            <div className="flex flex-col items-start gap-2">
+                                <h1 className="text-xl font-semibold">Personal Information</h1>
+                                <div className="dark:bg-zinc-800 bg-zinc-200 h-[1px] w-full"></div>
+                                <p className="text-[0.85rem] dark:text-zinc-400 text-zinc-700 font-medium">Enter your personal information below.</p>
+                            </div>
 
-        <div className="flex flex-col items-start gap-1">
-            <label htmlFor="input" className="text-[0.8rem]">Enter your email</label>
-            <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" 
-            placeholder="sabin@gmail.com" />
-        </div>
+                            <div className="flex flex-col items-start gap-1">
+                                <label htmlFor="input" className="text-[0.8rem]">Enter your email</label>
 
-        <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
-            <div className="flex flex-col items-start gap-1">
-                <label htmlFor="input">Username</label>
-                <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg" 
-                placeholder="sabin hamal" />
-                <p className="text-xs text-light mt-1 text-zinc-400">
-                Note: You can't change your username.</p>
-            </div>
-            
-            <button className="dark:bg-white bg-black border border-black dark:text-black text-white px-5 py-2 rounded-lg"> Submit
-            </button>
-        </div>
-    </div>
+                                <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg text-[0.85rem]" placeholder="sabin@gmail.com" />
+                            </div>
+
+
+                            <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
+                                <div className="flex flex-col items-start gap-1">
+                                    <label htmlFor="input">Username</label>
+                                    <input type="text" name="input" className="border py-2 px-3 w-72 bg-transparent rounded-lg" placeholder="sabin hamal" />
+                                    <p className="text-xs text-light mt-1 text-zinc-400">Note: You can't change your username.</p>
+                                </div>
+
+                                <button className="dark:bg-white bg-black border border-black dark:text-black text-white px-5 py-2 rounded-lg"> Submit
+                                </button>
+                            </div>
+
+                        </div>
     `
 
     return (
@@ -72,7 +72,7 @@ const Card = () => {
             <div className={`w-full border min-h-72 py-6 relative flex items-center justify-center rounded-lg`}>
                 {
                     isActive == "preview" ?
-                        <div className="flex flex-col items-start gap-8 p-6 border border-[#262626] rounded-lg">
+                        <div className="flex flex-col items-start gap-8 p-6 border rounded-lg">
                             <div className="flex flex-col items-start gap-2">
                                 <h1 className="text-xl font-semibold">Personal Information</h1>
                                 <div className="dark:bg-zinc-800 bg-zinc-200 h-[1px] w-full"></div>
@@ -89,7 +89,7 @@ const Card = () => {
                             <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
                                 <div className="flex flex-col items-start gap-1">
                                     <label htmlFor="input">Username</label>
-                                    <input type="text" name="input" className="border border-[#262626] py-2 px-3 w-72 bg-transparent rounded-lg" placeholder="sabin hamal" />
+                                    <input type="text" name="input" className="border py-2 px-3 w-72 bg-transparent rounded-lg" placeholder="sabin hamal" />
                                     <p className="text-xs text-light mt-1 text-zinc-400">Note: You can't change your username.</p>
                                 </div>
 

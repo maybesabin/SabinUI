@@ -18,7 +18,7 @@ const components: ComponentMap = {
     button: <Buttons />,
     input: <Input />,
     separator: <Separator />,
-    card: <Cards />,
+    cards: <Cards />,
     skeleton: <Skeletons />,
     bentogrid: <BentoGrid />
 };

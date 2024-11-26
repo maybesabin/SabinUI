@@ -22,8 +22,12 @@ const Navbar = () => {
                         <Link to={'/'}>SabinUI</Link>
                     </h1>
                     <ul className="lg:flex hidden items-center font-medium gap-6">
-                        <li className="text-sm text-muted-foreground hover:text-white cursor-pointer transition-all">Docs</li>
-                        <li className="text-sm text-muted-foreground hover:text-white cursor-pointer transition-all">Components</li>
+                        <li className="text-sm text-muted-foreground hover:text-black dark:hover:text-white cursor-pointer transition-all">
+                            <Link to={'/'}>Docs</Link>
+                        </li>
+                        <li className="text-sm text-muted-foreground hover:text-black dark:hover:text-white cursor-pointer transition-all">
+                            <Link to={'/components/bentogrid'}>Components</Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="flex items-center gap-2">
