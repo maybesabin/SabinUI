@@ -2,6 +2,7 @@ import Input from "./Input"
 import InputForm from "./InputForm"
 import InputWithButton from "./InputWithButton"
 import InputWithLabel from "./InputWithLabel"
+import InputWithDescription from "./InputWithDescription"
 
 const Inputs = () => {
 
@@ -13,6 +14,7 @@ const Inputs = () => {
             <Input />
             <InputWithLabel />
             <InputWithButton />
+            <InputWithDescription />
             <InputForm />
         </div>
     )
