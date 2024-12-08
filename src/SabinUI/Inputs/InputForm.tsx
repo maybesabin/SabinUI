@@ -17,18 +17,47 @@ const InputForm = () => {
     }
     const InputForm =
         `
-    <div className="flex flex-col items-start justify-start gap-6 text-[0.85rem]">
-        <div className="flex flex-col items-start gap-1">
-            <label htmlFor="input">Username</label>
-            <input type="text" name="input" className="border py-2 px-3 w-72 bg-transparent 
-            rounded-lg" placeholder="sabin hamal" />
-            <p className="text-xs text-light mt-1 text-zinc-400">Note: You can't change your username.</p>
-        </div>
-        
-        <button className="dark:bg-white bg-black border border-black dark:text-black 
-            text-white px-5 py-2 rounded-lg"> Submit
-        </button>
-    </div>
+    <div className="border p-6 rounded-lg md:w-[27rem] w-96 flex flex-col items-start gap-6">
+
+                            <h1 className="text-2xl font-semibold mb-4">Create an account</h1>
+
+                            <div className="w-full flex md:flex-row flex-col items-start md:justify-between gap-4">
+                                <div className="flex flex-col items-start gap-1 text-[0.85rem] md:w-1/2 w-full">
+                                    <label htmlFor="input">First Name</label>
+                                    <input type="text" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" placeholder="sabin" />
+                                </div>
+
+                                <div className="flex flex-col items-start gap-1 text-[0.85rem] md:w-1/2 w-full">
+                                    <label htmlFor="input">Last Name</label>
+                                    <input type="text" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" placeholder="hamal" />
+                                </div>
+                            </div>
+
+                            <div className="w-full flex items-end justify-between gap-2 relative">
+                                <h3 className="text-[0.85rem] absolute top-0">Phone Number</h3>
+
+                                <div className="flex flex-col items-start gap-1 text-[0.85rem] md:w-1/6 w-[20%] mt-6">
+                                    <input type="text" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" placeholder="+ 977" />
+                                </div>
+
+                                <input type="text" name="input" className="border py-2 px-3 text-[0.85rem] md:w-5/6 w-[80%] bg-transparent rounded-lg" placeholder="9023239230" />
+                            </div>
+
+                            <div className="flex flex-col items-start gap-1 text-[0.85rem] w-full">
+                                <label htmlFor="input">Email Address</label>
+                                <input type="email" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" placeholder="sabin@gmail.com" />
+                            </div>
+
+
+                            <div className="flex flex-col items-start gap-1 text-[0.85rem] w-full">
+                                <label htmlFor="input">Password</label>
+                                <input type="email" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" placeholder="*****************" />
+                            </div>
+
+                            <button className="dark:bg-zinc-200 dark:hover:bg-zinc-50 bg-black border border-black dark:text-black text-white w-full py-2 rounded-lg"> Sign up
+                            </button>
+
+                        </div>
     `
 
     return (

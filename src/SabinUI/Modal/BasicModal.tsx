@@ -28,20 +28,16 @@ const BasicModal = () => {
                             </label>
 
                             <div className="fixed inset-0 hidden peer-checked:flex dark:bg-black bg-white dark:bg-opacity-75 bg-opacity-90 items-center justify-center z-50">
-                                <div className="flex flex-col items-start gap-4 rounded-lg border p-6 dark:bg-black bg-opacity-75">
-                                    <h2 className="text-xl font-semibold mb-4">Modal Title</h2>
-                                    <p className="text-gray-400 mb-6">This is a basic modal using Tailwind CSS.</p>
-                                    <div className="flex items-center gap-2">
-                                        <button className="border px-5 py-2 rounded-lg text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-zinc-100 cursor-pointer transition-all">
-                                            Confirm
-                                        </button>
-                                        <label
-                                            htmlFor="modal-toggle"
-                                            className="border px-5 py-2 rounded-lg text-[0.9rem] bg-zinc-700 text-white dark:bg-zinc-200 dark:text-black hover:bg-zinc-900 dark:hover:bg-zinc-50 cursor-pointer transition-all"
-                                        >
-                                            Cancel
-                                        </label>
-                                    </div>
+                                <div className="flex flex-col items-start gap-4 max-w-80 rounded-lg border p-6 dark:bg-black bg-opacity-75">
+                                    <h2 className="text-xl font-semibold">Hey there !</h2>
+                                    <p className="text-gray-400 text-[0.85rem] mb-2">Will you follow @16calc on twitter?</p>
+
+                                    <label
+                                        htmlFor="modal-toggle"
+                                        className="border px-4 py-2 rounded-lg text-[0.8rem] bg-zinc-700 text-white dark:bg-zinc-200 dark:text-black hover:bg-zinc-900 dark:hover:bg-zinc-50 cursor-pointer transition-all"
+                                    >
+                                        Accept
+                                    </label>
                                 </div>
                             </div>
                         </div>
