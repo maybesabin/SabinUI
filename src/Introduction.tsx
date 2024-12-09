@@ -15,7 +15,7 @@ const Introduction = () => {
         },
         {
             question: "How do I install SabinUI?",
-            answer: "You can install SabinUI using npm or yarn. Run `npm install sabinui` or `yarn add sabinui` in your project directory."
+            answer: "You do not need to install SabinUI through a package. You can simply copy the code snippet and paste it in your project."
         },
         {
             question: "Is SabinUI compatible with React and TypeScript?",
@@ -30,12 +30,8 @@ const Introduction = () => {
             answer: "Yes, all components in SabinUI are highly customizable using utility classes like TailwindCSS or by overriding their styles."
         },
         {
-            question: "How can I contribute to SabinUI?",
-            answer: "We welcome contributions! Visit the SabinUI GitHub repository to report issues, suggest features, or submit pull requests."
-        },
-        {
             question: "Is SabinUI free to use?",
-            answer: "Yes, SabinUI is open-source and completely free to use under the MIT license."
+            answer: "Yes, SabinUI is completely free to use."
         },
     ];
 

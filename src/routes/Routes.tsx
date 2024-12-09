@@ -9,6 +9,7 @@ import Skeletons from "@/SabinUI/Skeleton/Skeletons";
 import Cards from "@/SabinUI/Card/Cards";
 import BentoGrid from "../SabinUI/Bento Grid/BentoGrid"
 import Modal from "@/SabinUI/Modal/Modal";
+import Toasts from "@/SabinUI/Toast/Toasts";
 
 type ComponentMap = {
     [key: string]: JSX.Element;
@@ -22,7 +23,8 @@ const components: ComponentMap = {
     cards: <Cards />,
     skeleton: <Skeletons />,
     bentogrid: <BentoGrid />,
-    modal: <Modal />
+    modal: <Modal />,
+    toast: <Toasts />
 };
 
 
