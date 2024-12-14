@@ -4,16 +4,50 @@ import logoDark from "../assets/images/logo-dark.png"
 import logoLight from "../assets/images/logo-white.png"
 import { useTheme } from "./theme-provider";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import { Separator } from "./ui/separator";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Toaster } from "@/components/ui/toaster"
+import { useToast } from "@/hooks/use-toast"
 
 const Navbar = () => {
     const { theme } = useTheme();
     const [toggleNavbar, setToggleNavbar] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("")
+    const navigate = useNavigate();
+    const { toast } = useToast()
+
+    //Search component
+    const availableComponents = [
+        "button",
+        "input",
+        "separator",
+        "card",
+        "skeleton",
+        "bentogrid",
+        "modal",
+        "toast"
+    ];
+
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const query = searchQuery.toLowerCase().replace(/\s+/g, "").trim();
+
+        if (availableComponents.includes(query)) {
+            navigate(`/components/${query}`)
+        } else {
+            toast({
+                title: "Component not found.",
+                description: "Please re-check the spelling or try again.",
+            })
+        }
+        setSearchQuery("");
+    }
+
     return (
         <div className="w-full flex items-center justify-center fixed top-0 right-0 bg-background z-50">
+            <Toaster />
             <div className="flex items-center justify-between xl:w-[95rem] w-full border px-4 py-2 lg:border-t-2 lg:border-l-2 border-l-0 lg:border-r-2 border-r-0 border-t-0">
                 <div className="flex items-center gap-3">
                     <Menu onClick={() => setToggleNavbar(!toggleNavbar)} className="lg:hidden flex" />
@@ -31,7 +65,13 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Input className="lg:w-72 text-sm" placeholder="Search component..." />
+                    <form onSubmit={handleSearch}>
+                        <Input
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="lg:w-72 text-sm" placeholder="Search component..." />
+                    </form>
                     <ModeToggle />
                 </div>
             </div>

@@ -20,7 +20,7 @@ const components: ComponentMap = {
     button: <Buttons />,
     input: <Input />,
     separator: <Separator />,
-    cards: <Cards />,
+    card: <Cards />,
     skeleton: <Skeletons />,
     bentogrid: <BentoGrid />,
     modal: <Modal />,

@@ -1,6 +1,7 @@
 import PrimaryButton from "./PrimaryButton"
 import ConfirmButton from "./ConfirmButton"
 import DeleteButton from "./DeleteButton"
+import FancyButton from "./FancyButton"
 const Buttons = () => {
 
     return (
@@ -9,6 +10,7 @@ const Buttons = () => {
                 Renders a fully customizable button component that seamlessly blends with your design, providing both functionality and aesthetic consistency.
             </p>
             <PrimaryButton />
+            <FancyButton />
             <ConfirmButton />
             <DeleteButton />
         </div>
