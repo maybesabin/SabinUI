@@ -1,50 +1,15 @@
-# React + TypeScript + Vite
+# SabinUI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SabinUI is a modern and sleek UI component library built with React and TailwindCSS, designed to help developers easily integrate visually appealing and functional UI components into their web applications. Whether you are building a small project or a complex web app, SabinUI provides a versatile and customizable set of components to accelerate your development process.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Lightweight and Customizable**: SabinUI is optimized for performance and flexibility, allowing easy customization to fit your design needs.
+- **Responsive Design**: All components are built with responsiveness in mind, ensuring seamless user experiences across various devices.
+- **Modern and Elegant**: The components are designed to align with modern UI/UX trends, offering a professional look and feel.
+- **TailwindCSS**: Built using TailwindCSS, enabling utility-first styling and rapid prototyping.
+- **React Support**: Perfectly integrated with React, making it simple to use in React-based projects.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+To get started with SabinUI, follow the docs.
