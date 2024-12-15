@@ -10,7 +10,7 @@ import Cards from "@/SabinUI/Card/Cards";
 import BentoGrid from "../SabinUI/Bento Grid/BentoGrid"
 import Modal from "@/SabinUI/Modal/Modal";
 import Toasts from "@/SabinUI/Toast/Toasts";
-import DarkMode from "@/SabinUI/Dark Mode/DarkMode";
+import DarkMode from "../SabinUI/Dark Mode/DarkMode";
 
 type ComponentMap = {
     [key: string]: JSX.Element;
