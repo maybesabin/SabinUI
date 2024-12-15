@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Sidebar = () => {
 
-    const components = ['button', 'input', 'separator', 'card', 'skeleton', 'bento grid', 'modal', 'toast']
+    const components = ['button', 'input', 'separator', 'card', 'skeleton', 'bento grid', 'modal', 'toast', 'dark mode']
     const sortedComponents = components.sort();
 
     return (
