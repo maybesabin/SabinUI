@@ -1,12 +1,10 @@
-import { useTheme } from "@/components/theme-provider"
 import { useState } from "react"
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
-import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Check, Clipboard } from "lucide-react"
 import jordan4 from "../../assets/images/jordan4.png"
 
 const GradientCard = () => {
-    const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () => {
@@ -16,22 +14,24 @@ const GradientCard = () => {
             setIsCopied(false);
         }, 2000)
     }
-    const GradientCard =
-        `
-        <div className="relative p-2 bg-gradient-to-r from-blue-900 via-purple-600 to-pink-600 rounded-xl 
-            hover:shadow-[0_0_20px_rgba(139,92,246,0.7)] transition-shadow duration-500 ease-in-out">
-                            <div className="max-w-96 p-6 rounded-lg flex flex-col items-center gap-2 dark:bg-black bg-white">
-                                <img src={jordan4} className="scale-x-[-1] w-64 " alt="" />
-                                <div className="w-full flex flex-col items-start gap-4">
-                                    <h1 className="text-3xl font-semibold">Jordan 4</h1>
-                                    <p className="text-[0.85rem] text-justify dark:text-zinc-400 text-zinc-800">
-                                        The Air Jordan 4, released in 1989, is a classic basketball sneaker designed by Tinker Hatfield. Known for its iconic mesh panels, 
-                                        wing-shaped lace supports, and visible Air cushioning, it combines performance with style. Popularized by Michael Jordan and 
-                                        re-released in numerous colorways, the Jordan 4 remains a cultural and fashion staple.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+    const GradientCard = `
+    <div
+        className="relative p-2 bg-gradient-to-r from-blue-900 via-purple-600 to-pink-600 rounded-xl 
+        hover:shadow-[0_0_20px_rgba(139,92,246,0.7)] transition-shadow duration-500 ease-in-out"
+        >
+        <div className="max-w-96 p-6 rounded-lg flex flex-col items-center gap-2 dark:bg-black bg-white">
+            <img src={jordan4} className="scale-x-[-1] w-64" alt="Jordan 4" />
+            <div className="w-full flex flex-col items-start gap-4">
+            <h1 className="text-3xl font-semibold">Jordan 4</h1>
+            <p className="text-[0.85rem] text-justify dark:text-zinc-400 text-zinc-800">
+                The Air Jordan 4, released in 1989, is a classic basketball sneaker designed by Tinker Hatfield. Known for its iconic mesh panels, 
+                wing-shaped lace supports, and visible Air cushioning, it combines performance with style. Popularized by Michael Jordan and 
+                re-released in numerous colorways, the Jordan 4 remains a cultural and fashion staple.
+            </p>
+            </div>
+        </div>
+    </div>
+
     `
 
     return (
@@ -79,12 +79,14 @@ const GradientCard = () => {
                                 :
                                 <Check className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />}
                             <div className="p-6 text-[0.85rem] w-auto overflow-x-hidden">
-                                <SyntaxHighlighter language="javascript" style={theme == "dark" ? atomOneDark : atomOneLight} wrapLines={true} lineProps={{ style: { whiteSpace: 'pre-wrap' } }} customStyle={{
-                                    whiteSpace: 'pre-wrap',
-                                    padding: '15px',
-                                    borderRadius: '7px',
-                                    overflowX: 'hidden'
-                                }}>
+                                <SyntaxHighlighter
+                                    wrapLines
+                                    customStyle={{
+                                        backgroundColor: "transparent",
+                                        fontSize: "0.9rem"
+                                    }}
+                                    language="jsx"
+                                    style={vscDarkPlus}>
                                     {GradientCard}
                                 </SyntaxHighlighter>
                             </div>

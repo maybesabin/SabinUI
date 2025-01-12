@@ -1,11 +1,9 @@
-import { useTheme } from "@/components/theme-provider"
 import { useState } from "react"
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
-import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Check, Clipboard } from "lucide-react"
 
 const DestructiveToast = () => {
-    const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () => {
@@ -15,21 +13,30 @@ const DestructiveToast = () => {
             setIsCopied(false);
         }, 2000)
     }
-    const DestructiveToast = `<div>
-                            <button className="border px-5 py-2 rounded-lg text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-zinc-100 cursor-pointer transition-all peer">Show Toast</button>
+    const DestructiveToast = `
+    <div>
+        <button className="border px-5 py-2 rounded-lg text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-zinc-100 
+        cursor-pointer transition-all peer">Show Toast</button>
 
-                            <div className="border rounded-lg min-w-80 fixed bottom-4 right-4 peer-focus:visible invisible flex items-start justify-between gap-4 transition-all transform opacity-0 translate-y-4 peer-focus:opacity-100 peer-focus:translate-y-0 px-4 py-3 dark:bg-red-700 bg-zinc-50">
-                                <div className="flex items-center gap-6">
-                                    <div className="flex flex-col items-start gap-1">
-                                        <h1 className="text-[0.9rem] font-medium">Something went wrong!</h1>
-                                        <p className="text-[0.8rem]">There was a problem with sending the data.</p>
-                                    </div>
-                                    <button className="border border-zinc-700 hover:border-none font-medium px-4 py-2 rounded-lg text-[0.8rem] cursor-pointer transition-all peer">Try again</button>
-                                </div>
+        <div className="border rounded-lg min-w-80 fixed bottom-4 right-4 peer-focus:visible invisible flex 
+        items-start justify-between gap-4 transition-all transform opacity-0 translate-y-4 peer-focus:opacity-100 
+        peer-focus:translate-y-0 px-4 py-3 dark:bg-red-700 bg-zinc-50">
+                <div className="flex items-center gap-6">
+                    <div className="flex flex-col items-start gap-1">
+                        <h1 className="text-[0.9rem] font-medium">Something went wrong!</h1>
+                        <p className="text-[0.8rem]">There was a problem with sending the data.</p>
+                    </div>
+                    <button className="border border-zinc-700 hover:border-none font-medium px-4 py-2 
+                    rounded-lg text-[0.8rem] cursor-pointer transition-all peer">Try again</button>
+                </div>
 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x stroke-zinc-400 dark:hover:stroke-white hover:stroke-black cursor-pointer"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
-                            </div>
-                        </div>`
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" 
+                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" 
+                className="lucide lucide-x stroke-zinc-400 dark:hover:stroke-white 
+                hover:stroke-black cursor-pointer"><path d="M18 6 6 18" />
+                <path d="m6 6 12 12" /></svg>
+            </div>
+    </div>`
 
     return (
         <div className="flex w-full flex-col items-start justify-start gap-6">
@@ -81,12 +88,14 @@ const DestructiveToast = () => {
                                 :
                                 <Check className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />}
                             <div className="p-6 text-[0.85rem] w-auto overflow-x-hidden">
-                                <SyntaxHighlighter language="javascript" style={theme == "dark" ? atomOneDark : atomOneLight} wrapLines={true} lineProps={{ style: { whiteSpace: 'pre-wrap' } }} customStyle={{
-                                    whiteSpace: 'pre-wrap',
-                                    padding: '15px',
-                                    borderRadius: '7px',
-                                    overflowX: 'hidden'
-                                }}>
+                                <SyntaxHighlighter
+                                    wrapLines
+                                    customStyle={{
+                                        backgroundColor: "transparent",
+                                        fontSize: "0.9rem"
+                                    }}
+                                    language="jsx"
+                                    style={vscDarkPlus}>
                                     {DestructiveToast}
                                 </SyntaxHighlighter>
                             </div>

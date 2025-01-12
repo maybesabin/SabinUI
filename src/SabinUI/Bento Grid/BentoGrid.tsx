@@ -1,11 +1,9 @@
-import { useTheme } from "@/components/theme-provider"
 import { useState } from "react"
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
-import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Check, Clipboard } from "lucide-react"
 
 const BentoGrid = () => {
-    const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () => {
@@ -15,73 +13,75 @@ const BentoGrid = () => {
             setIsCopied(false);
         }, 2000)
     }
-    const BentoGrid =
-        `
-                                <div className="lg:max-w-5xl w-full flex flex-col items-start justify-start gap-4 px-6">
+    const BentoGrid = `
+    <div className="lg:max-w-5xl w-full flex flex-col items-start justify-start gap-4 px-6">
+    <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
+        <div className="group p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border rounded-lg">
+            <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg"></div>
+            <h1 className="group-hover:ml-2 duration-300 transition-all text-xl font-semibold">Lorem ipsum dolor</h1>
+            <p className="group-hover:ml-2 duration-300 transition-all text-xs opacity-65">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque 
+                consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?
+            </p>
+        </div>
+        <div className="group p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border rounded-lg">
+            <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg"></div>
+            <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
+            <p className="group-hover:ml-2 duration-300 text-xs opacity-65">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque 
+                consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?
+            </p>
+        </div>
+        <div className="group p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border rounded-lg">
+            <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg"></div>
+            <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
+            <p className="group-hover:ml-2 duration-300 text-xs opacity-65">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque 
+                consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?
+            </p>
+        </div>
+    </div>
 
-                            <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
-                                <div className="group p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border rounded-lg">
-                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
-                                    </div>
-                                    <h1 className="group-hover:ml-2 duration-300 transition-all text-xl font-semibold">Lorem ipsum dolor</h1>
-                                    <p className="group-hover:ml-2 duration-300 transition-all text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                    Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                                </div>
-                                <div className="group p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border rounded-lg">
-                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
-                                    </div>
-                                    <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
-                                    <p className="group-hover:ml-2 duration-300 text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                    Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                                </div>
-                                <div className="group p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-4 border rounded-lg">
-                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
-                                    </div>
-                                    <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
-                                    <p className="group-hover:ml-2 duration-300 text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                    
-                                    Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                                </div>
-                            </div>
+    <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
+        <div className="group p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
+            <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-52 w-full rounded-lg"></div>
+            <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
+            <p className="group-hover:ml-2 duration-300 text-xs opacity-65">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque 
+                consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?
+            </p>
+        </div>
+        <div className="group p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
+            <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg"></div>
+            <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
+            <p className="group-hover:ml-2 duration-300 text-xs opacity-65">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque 
+                consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?
+            </p>
+        </div>
+    </div>
 
-                            <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
-                                <div className="group p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
-                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-52 w-full rounded-lg">
-                                    </div>
-                                    <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
-                                    <p className="group-hover:ml-2 duration-300 text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                    Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                                </div>
-                                <div className="group p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
-                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
-                                    </div>
-                                    <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
-                                    <p className="group-hover:ml-2 duration-300 text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                    Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                                </div>
-                            </div>
-
-                            <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
-                                <div className="group p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
-                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg">
-                                    </div>
-                                    <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
-                                    <p className="group-hover:ml-2 duration-300 text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                    Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                                </div>
-                                <div className="group p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
-                                    <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-52 w-full rounded-lg">
-                                    </div>
-                                    <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
-                                    <p className="group-hover:ml-2 duration-300 text-xs opacity-65">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                    Dicta odio at reiciendis iusto atque consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?</p>
-                                </div>
-                            </div>
-
-                        </div>
+    <div className="w-full flex md:flex-row flex-col md:items-start items-center justify-between gap-4">
+        <div className="group p-4 md:w-1/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
+            <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-44 w-full rounded-lg"></div>
+            <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
+            <p className="group-hover:ml-2 duration-300 text-xs opacity-65">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque 
+                consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?
+            </p>
+        </div>
+        <div className="group p-4 md:w-2/3 w-full md:min-h-[22rem] flex flex-col items-start justify-between gap-3 border rounded-lg">
+            <div className="dark:bg-[#202022] bg-zinc-300 animate-pulse h-52 w-full rounded-lg"></div>
+            <h1 className="group-hover:ml-2 duration-300 text-xl font-semibold">Lorem ipsum dolor</h1>
+            <p className="group-hover:ml-2 duration-300 text-xs opacity-65">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta odio at reiciendis iusto atque 
+                consectetur? Non nesciunt consequatur minima architecto sunt, aut harum tempora omnis?
+            </p>
+        </div>
+    </div>
+</div>
 
     `
-
     return (
         <div className="flex w-full flex-col items-start justify-start gap-6">
             <p className="text-[0.85rem] font-medium text-zinc-500 mb-6">
@@ -173,12 +173,14 @@ const BentoGrid = () => {
                                 :
                                 <Check className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />}
                             <div className="p-6 text-[0.85rem] w-auto overflow-x-hidden">
-                                <SyntaxHighlighter language="javascript" style={theme == "dark" ? atomOneDark : atomOneLight} wrapLines={true} lineProps={{ style: { whiteSpace: 'pre-wrap' } }} customStyle={{
-                                    whiteSpace: 'pre-wrap',
-                                    padding: '15px',
-                                    borderRadius: '7px',
-                                    overflowX: 'hidden'
-                                }}>
+                                <SyntaxHighlighter
+                                    wrapLines
+                                    customStyle={{
+                                        backgroundColor: "transparent",
+                                        fontSize: "0.9rem"
+                                    }}
+                                    language="jsx"
+                                    style={vscDarkPlus}>
                                     {BentoGrid}
                                 </SyntaxHighlighter>
                             </div>

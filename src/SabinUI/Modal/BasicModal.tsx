@@ -1,11 +1,9 @@
-import { useTheme } from "@/components/theme-provider"
 import { useState } from "react"
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
-import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Check, Clipboard } from "lucide-react"
 
 const BasicModal = () => {
-    const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () => {
@@ -18,29 +16,31 @@ const BasicModal = () => {
     const BasicModal =
         `
     <div className="relative">
-                            <input type="checkbox" id="modal-toggle" className="hidden peer" />
+        <input type="checkbox" id="modal-toggle" className="hidden peer" />
 
-                            <label
-                                htmlFor="modal-toggle"
-                                className="border px-5 py-2 rounded-full text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-zinc-100 cursor-pointer transition-all"
-                            >
-                                Open Modal
-                            </label>
+        <label
+            htmlFor="modal-toggle"
+            className="border px-5 py-2 rounded-full text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-zinc-100 
+            cursor-pointer transition-all">
+            Open Modal
+        </label>
 
-                            <div className="fixed inset-0 hidden peer-checked:flex dark:bg-black bg-white dark:bg-opacity-75 bg-opacity-90 items-center justify-center z-50">
-                                <div className="flex flex-col items-start gap-4 max-w-80 rounded-lg border p-6 dark:bg-black bg-opacity-75">
-                                    <h2 className="text-xl font-semibold">Hey there !</h2>
-                                    <p className="text-gray-400 text-[0.85rem] mb-2">Will you follow @16calc on twitter?</p>
+        <div className="fixed inset-0 hidden peer-checked:flex dark:bg-black bg-white 
+        dark:bg-opacity-75 bg-opacity-90 items-center justify-center z-50">
+            <div className="flex flex-col items-start gap-4 max-w-80 rounded-lg border p-6 dark:bg-black bg-opacity-75">
+                <h2 className="text-xl font-semibold">Hey there !</h2>
+                <p className="text-gray-400 text-[0.85rem] mb-2">Will you follow @16calc on twitter?</p>
 
-                                    <label
-                                        htmlFor="modal-toggle"
-                                        className="border px-4 py-2 rounded-lg text-[0.8rem] bg-zinc-700 text-white dark:bg-zinc-200 dark:text-black hover:bg-zinc-900 dark:hover:bg-zinc-50 cursor-pointer transition-all"
-                                    >
-                                        Accept
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                <label
+                    htmlFor="modal-toggle"
+                    className="border px-4 py-2 rounded-lg text-[0.8rem] bg-zinc-700 text-white 
+                    dark:bg-zinc-200 dark:text-black hover:bg-zinc-900 dark:hover:bg-zinc-50 cursor-pointer 
+                    transition-all">
+                    Accept
+                </label>
+            </div>
+        </div>
+    </div>
     `
 
     return (
@@ -101,12 +101,14 @@ const BasicModal = () => {
                                 :
                                 <Check className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />}
                             <div className="p-6 text-[0.85rem] w-auto overflow-x-hidden">
-                                <SyntaxHighlighter language="javascript" style={theme == "dark" ? atomOneDark : atomOneLight} wrapLines={true} lineProps={{ style: { whiteSpace: 'pre-wrap' } }} customStyle={{
-                                    whiteSpace: 'pre-wrap',
-                                    padding: '15px',
-                                    borderRadius: '7px',
-                                    overflowX: 'hidden'
-                                }}>
+                                <SyntaxHighlighter
+                                    wrapLines
+                                    customStyle={{
+                                        backgroundColor: "transparent",
+                                        fontSize: "0.9rem"
+                                    }}
+                                    language="jsx"
+                                    style={vscDarkPlus}>
                                     {BasicModal}
                                 </SyntaxHighlighter>
                             </div>

@@ -1,11 +1,10 @@
-import { useTheme } from "@/components/theme-provider"
 import { useState } from "react"
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
-import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Check, Clipboard } from "lucide-react"
 
 const Toast = () => {
-    const { theme } = useTheme();
+
     const [isActive, setIsActive] = useState("preview")
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () => {
@@ -15,15 +14,23 @@ const Toast = () => {
             setIsCopied(false);
         }, 2000)
     }
-    const Toast = `<div>
-                            <button className="border px-5 py-2 rounded-lg text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-zinc-100 cursor-pointer transition-all peer">Show toast</button>
+    const Toast = `
+    <div>
+        <button className="border px-5 py-2 rounded-lg text-[0.9rem] dark:hover:bg-zinc-900 
+        hover:bg-zinc-100 cursor-pointer transition-all peer">Show toast</button>
 
-                            <div className="border rounded-lg min-w-80 fixed bottom-4 right-4 peer-focus:visible invisible flex items-center justify-between transition-all transform opacity-0 translate-y-4 peer-focus:opacity-100 peer-focus:translate-y-0 px-4 py-3 dark:bg-zinc-950 bg-zinc-50">
-                                <h1 className="text-[0.8rem]">Your message has been sent.</h1>
+            <div className="border rounded-lg min-w-80 fixed bottom-4 right-4 peer-focus:visible 
+            invisible flex items-center justify-between transition-all transform opacity-0 
+            translate-y-4 peer-focus:opacity-100 peer-focus:translate-y-0 px-4 py-3 dark:bg-zinc-950 bg-zinc-50">
+                <h1 className="text-[0.8rem]">Your message has been sent.</h1>
 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x stroke-zinc-400 dark:hover:stroke-white hover:stroke-black cursor-pointer"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
-                            </div>
-                        </div>`
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" 
+                fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" 
+                className="lucide lucide-x stroke-zinc-400 dark:hover:stroke-white 
+                hover:stroke-black cursor-pointer">
+                <path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            </div>
+    </div>`
 
     return (
         <div className="flex w-full flex-col items-start justify-start gap-6">
@@ -69,12 +76,14 @@ const Toast = () => {
                                 :
                                 <Check className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />}
                             <div className="p-6 text-[0.85rem] w-auto overflow-x-hidden">
-                                <SyntaxHighlighter language="javascript" style={theme == "dark" ? atomOneDark : atomOneLight} wrapLines={true} lineProps={{ style: { whiteSpace: 'pre-wrap' } }} customStyle={{
-                                    whiteSpace: 'pre-wrap',
-                                    padding: '15px',
-                                    borderRadius: '7px',
-                                    overflowX: 'hidden'
-                                }}>
+                            <SyntaxHighlighter
+                                    wrapLines
+                                    customStyle={{
+                                        backgroundColor: "transparent",
+                                        fontSize: "0.9rem"
+                                    }}
+                                    language="jsx"
+                                    style={vscDarkPlus}>
                                     {Toast}
                                 </SyntaxHighlighter>
                             </div>

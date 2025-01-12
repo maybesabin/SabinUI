@@ -45,11 +45,11 @@ const Introduction = () => {
                 This is a collection of reusable components that will fasten your development process.
             </p>
 
-            <div className="flex flex-col items-start mt-6 w-full">
+            <div className="flex flex-col items-start mt-6">
                 <h1 className="text-3xl font-semibold">FAQs</h1>
-                <Accordion type="single" collapsible className="w-full">
+                <Accordion type="single" collapsible className="lg:w-[45rem] md:w-[30rem] w-full">
                     {faqs.map((item, idx) => (
-                        <AccordionItem value={`item-${idx + 1}`}>
+                        <AccordionItem key={idx} value={`item-${idx + 1}`}>
                             <AccordionTrigger>{item.question}</AccordionTrigger>
                             <AccordionContent>
                                 {item.answer}

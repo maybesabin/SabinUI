@@ -1,15 +1,23 @@
 import { ModeToggle } from "./mode-toggle"
-import { Input } from "./ui/input"
 import logoDark from "../assets/images/logo-dark.png"
 import logoLight from "../assets/images/logo-white.png"
 import { useTheme } from "./theme-provider";
 import { Menu, X } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import { Separator } from "./ui/separator";
 import { Link, useNavigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster"
 import { useToast } from "@/hooks/use-toast"
+import {
+    CommandDialog,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+} from "../components/ui/command"
+import { DialogTitle } from "@/components/ui/dialog"
 
 const Navbar = () => {
     const { theme } = useTheme();
@@ -17,8 +25,21 @@ const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState("")
     const navigate = useNavigate();
     const { toast } = useToast()
+    const [filteredComponents, setFilteredComponents] = useState<string[]>([]);
 
-    //Search component
+    const [openCommand, setOpenCommand] = useState(false)
+
+    useEffect(() => {
+        const down = (e: KeyboardEvent) => {
+            if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault()
+                setOpenCommand(!openCommand)
+            }
+        }
+        document.addEventListener("keydown", down)
+        return () => document.removeEventListener("keydown", down)
+    }, [])
+
     const availableComponents = [
         "button",
         "input",
@@ -30,20 +51,35 @@ const Navbar = () => {
         "toast"
     ];
 
+    const handlePartialMatch = (query: string) => {
+        const filtered = availableComponents.filter(component =>
+            component.toLowerCase().includes(query.toLowerCase())
+        );
+        setFilteredComponents(filtered);
+    };
+
+    useEffect(() => {
+        handlePartialMatch(searchQuery);
+    }, [searchQuery]);
+
+    const handleNavigation = (component: string) => {
+        navigate(`/docs/components/${component}`);
+        setOpenCommand(false);
+        setSearchQuery("");
+    };
+
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const query = searchQuery.toLowerCase().replace(/\s+/g, "").trim();
 
-        if (availableComponents.includes(query)) {
-            navigate(`/components/${query}`)
+        if (filteredComponents.length > 0) {
+            handleNavigation(filteredComponents[0]);
         } else {
             toast({
                 title: "Component not found.",
                 description: "Please re-check the spelling or try again.",
-            })
+            });
         }
-        setSearchQuery("");
-    }
+    };
 
     return (
         <div className="w-full flex items-center justify-center fixed top-0 right-0 bg-background z-50">
@@ -60,18 +96,24 @@ const Navbar = () => {
                             <Link to={'/'}>Docs</Link>
                         </li>
                         <li className="text-sm text-muted-foreground hover:text-black dark:hover:text-white cursor-pointer transition-all">
-                            <Link to={'/components/bentogrid'}>Components</Link>
+                            <Link to={'/docs/components/bentogrid'}>Components</Link>
                         </li>
                     </ul>
                 </div>
                 <div className="flex items-center gap-2">
-                    <form onSubmit={handleSearch}>
-                        <Input
+                    <div
+                        onClick={() => setOpenCommand(!openCommand)}
+                        className='flex items-center gap-2 border pr-1 pl-4 py-[0.2rem] rounded-lg cursor-pointer dark:bg-neutral-900 group dark:group-hover:bg-neutral-400 transition-all'>
+                        <input
+                            readOnly
                             type="text"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="lg:w-72 text-sm" placeholder="Search component..." />
-                    </form>
+                            placeholder='Search components...'
+                            className='border-none cursor-pointer md:text-sm text-xs outline-none bg-transparent w-52 placeholder-zinc-500 dark:group-hover:placeholder-zinc-200 hover:placeholder-zinc-800 transition-all' />
+                        <div className='border dark:bg-neutral-900 bg-neutral-100 rounded-lg px-1'>
+                            <span className='text-xs text-zinc-500 dark:group-hover:text-zinc-200 group-hover:text-zinc-800  transition-all'>⌘&nbsp;</span>
+                            <span className='text-xs text-zinc-500 dark:group-hover:text-zinc-200 group-hover:text-zinc-800  transition-all'>K</span>
+                        </div>
+                    </div>
                     <ModeToggle />
                 </div>
             </div>
@@ -84,6 +126,34 @@ const Navbar = () => {
                 <Sidebar />
             </div>
 
+            {/* Search Box Popup */}
+            <form onSubmit={handleSearch}>
+                <CommandDialog open={openCommand} onOpenChange={setOpenCommand}>
+                    <DialogTitle className="sr-only">Search components</DialogTitle>
+                    <CommandInput
+                        value={searchQuery}
+                        onValueChange={setSearchQuery}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter" && filteredComponents.length > 0) {
+                                e.preventDefault();
+                                handleNavigation(filteredComponents[0]);
+                            }
+                        }}
+                        placeholder="Search components..." />
+                    <CommandList>
+                        <CommandEmpty>No results found.</CommandEmpty>
+                        <CommandGroup heading="Suggestions">
+                            {filteredComponents.map((component) => (
+                                <CommandItem
+                                    onSelect={() => handleNavigation(component)}
+                                    key={component}>
+                                    {component}
+                                </CommandItem>
+                            ))}
+                        </CommandGroup>
+                    </CommandList>
+                </CommandDialog>
+            </form>
         </div>
     )
 }

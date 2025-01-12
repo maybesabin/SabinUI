@@ -1,11 +1,9 @@
-import { useTheme } from "@/components/theme-provider"
 import { useState } from "react"
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
-import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Check, Clipboard } from "lucide-react"
 
 const fancyButton = () => {
-    const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () => {
@@ -15,16 +13,40 @@ const fancyButton = () => {
             setIsCopied(false);
         }, 2000)
     }
-    const fancyButton = `                        
-    <div className="cursor-pointer flex items-center justify-center gap-3 px-5 py-2 text-[0.85rem] font-medium border rounded-full dark:shadow-sm shadow-xl dark:shadow-slate-400 active:scale-95 active:border-zinc-400 active:shadow-lg transition-all duration-200 group">
-                            <h1>Contact Us</h1>
-                            <svg className="translate-x-0 dark:text-white group-active:-translate-x-1 transition-all duration-200"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24" width={18} height={18} fill={"none"}>
-                                <path d="M20.0001 11.9998L4.00012 11.9998" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M15.0003 17C15.0003 17 20.0002 13.3176 20.0002 12C20.0002 10.6824 15.0002 7 15.0002 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-    </div>`
+    const fancyButton =
+        `
+        <div
+            className="cursor-pointer flex items-center justify-center gap-3 px-5 py-2 text-[0.85rem] 
+            font-medium border rounded-full dark:shadow-sm shadow-xl dark:shadow-slate-400 
+            active:scale-95 active:border-zinc-400 active:shadow-lg transition-all duration-200 group"
+        >
+        <h1>Contact Us</h1>
+        <svg
+            className="translate-x-0 dark:text-white group-active:-translate-x-1 transition-all duration-200"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width={18}
+            height={18}
+            fill="none"
+        >
+        <path
+        d="M20.0001 11.9998L4.00012 11.9998"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        />
+        <path
+        d="M15.0003 17C15.0003 17 20.0002 13.3176 20.0002 12C20.0002 10.6824 15.0002 7 15.0002 7"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        />
+  </svg>
+</div>
+
+    `
 
     return (
         <div className="flex w-full flex-col items-start justify-start gap-6">
@@ -70,12 +92,14 @@ const fancyButton = () => {
                                 :
                                 <Check className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />}
                             <div className="p-6 text-[0.85rem] w-auto overflow-x-hidden">
-                                <SyntaxHighlighter language="javascript" style={theme == "dark" ? atomOneDark : atomOneLight} wrapLines={true} lineProps={{ style: { whiteSpace: 'pre-wrap' } }} customStyle={{
-                                    whiteSpace: 'pre-wrap',
-                                    padding: '15px',
-                                    borderRadius: '7px',
-                                    overflowX: 'hidden'
-                                }}>
+                                <SyntaxHighlighter
+                                    wrapLines
+                                    customStyle={{
+                                        backgroundColor: "transparent",
+                                        fontSize: "0.9rem"
+                                    }}
+                                    language="jsx"
+                                    style={vscDarkPlus}>
                                     {fancyButton}
                                 </SyntaxHighlighter>
                             </div>

@@ -1,11 +1,9 @@
-import { useTheme } from "@/components/theme-provider"
 import { useState } from "react"
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
-import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Check, Clipboard } from "lucide-react"
 
 const InputForm = () => {
-    const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () => {
@@ -19,45 +17,52 @@ const InputForm = () => {
         `
     <div className="border p-6 rounded-lg md:w-[27rem] w-96 flex flex-col items-start gap-6">
 
-                            <h1 className="text-2xl font-semibold mb-4">Create an account</h1>
+        <h1 className="text-2xl font-semibold mb-4">Create an account</h1>
 
-                            <div className="w-full flex md:flex-row flex-col items-start md:justify-between gap-4">
-                                <div className="flex flex-col items-start gap-1 text-[0.85rem] md:w-1/2 w-full">
-                                    <label htmlFor="input">First Name</label>
-                                    <input type="text" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" placeholder="sabin" />
-                                </div>
+        <div className="w-full flex md:flex-row flex-col items-start md:justify-between gap-4">
+            <div className="flex flex-col items-start gap-1 text-[0.85rem] md:w-1/2 w-full">
+                <label htmlFor="input">First Name</label>
+                <input type="text" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" 
+                placeholder="sabin" />
+            </div>
 
-                                <div className="flex flex-col items-start gap-1 text-[0.85rem] md:w-1/2 w-full">
-                                    <label htmlFor="input">Last Name</label>
-                                    <input type="text" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" placeholder="hamal" />
-                                </div>
-                            </div>
+            <div className="flex flex-col items-start gap-1 text-[0.85rem] md:w-1/2 w-full">
+                <label htmlFor="input">Last Name</label>
+                <input type="text" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" 
+                placeholder="hamal" />
+            </div>
+        </div>
 
-                            <div className="w-full flex items-end justify-between gap-2 relative">
-                                <h3 className="text-[0.85rem] absolute top-0">Phone Number</h3>
+        <div className="w-full flex items-end justify-between gap-2 relative">
+            <h3 className="text-[0.85rem] absolute top-0">Phone Number</h3>
 
-                                <div className="flex flex-col items-start gap-1 text-[0.85rem] md:w-1/6 w-[20%] mt-6">
-                                    <input type="text" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" placeholder="+ 977" />
-                                </div>
+                <div className="flex flex-col items-start gap-1 text-[0.85rem] md:w-1/6 w-[20%] mt-6">
+                    <input type="text" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" 
+                    placeholder="+ 977" />
+                </div>
 
-                                <input type="text" name="input" className="border py-2 px-3 text-[0.85rem] md:w-5/6 w-[80%] bg-transparent rounded-lg" placeholder="9023239230" />
-                            </div>
+                <input type="text" name="input" className="border py-2 px-3 text-[0.85rem] md:w-5/6 w-[80%] 
+                bg-transparent rounded-lg" placeholder="9023239230" />
+        </div>
 
-                            <div className="flex flex-col items-start gap-1 text-[0.85rem] w-full">
-                                <label htmlFor="input">Email Address</label>
-                                <input type="email" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" placeholder="sabin@gmail.com" />
-                            </div>
+        <div className="flex flex-col items-start gap-1 text-[0.85rem] w-full">
+            <label htmlFor="input">Email Address</label>
+            <input type="email" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" 
+            placeholder="sabin@gmail.com" />
+        </div>
 
 
-                            <div className="flex flex-col items-start gap-1 text-[0.85rem] w-full">
-                                <label htmlFor="input">Password</label>
-                                <input type="email" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" placeholder="*****************" />
-                            </div>
+        <div className="flex flex-col items-start gap-1 text-[0.85rem] w-full">
+            <label htmlFor="input">Password</label>
+            <input type="email" name="input" className="border py-2 px-3 w-full bg-transparent rounded-lg" 
+            placeholder="*****************" />
+        </div>
 
-                            <button className="dark:bg-zinc-200 dark:hover:bg-zinc-50 bg-black border border-black dark:text-black text-white w-full py-2 rounded-lg"> Sign up
-                            </button>
+        <button className="dark:bg-zinc-200 dark:hover:bg-zinc-50 bg-black border border-black 
+        dark:text-black text-white w-full py-2 rounded-lg"> Sign up
+        </button>
 
-                        </div>
+    </div>
     `
 
     return (
@@ -136,12 +141,14 @@ const InputForm = () => {
                                 :
                                 <Check className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />}
                             <div className="p-6 text-[0.85rem] w-auto overflow-x-hidden">
-                                <SyntaxHighlighter language="javascript" style={theme == "dark" ? atomOneDark : atomOneLight} wrapLines={true} lineProps={{ style: { whiteSpace: 'pre-wrap' } }} customStyle={{
-                                    whiteSpace: 'pre-wrap',
-                                    padding: '15px',
-                                    borderRadius: '7px',
-                                    overflowX: 'hidden'
-                                }}>
+                                <SyntaxHighlighter
+                                    wrapLines
+                                    customStyle={{
+                                        backgroundColor: "transparent",
+                                        fontSize: "0.9rem"
+                                    }}
+                                    language="jsx"
+                                    style={vscDarkPlus}>
                                     {InputForm}
                                 </SyntaxHighlighter>
                             </div>

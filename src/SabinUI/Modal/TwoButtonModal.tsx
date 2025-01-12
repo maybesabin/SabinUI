@@ -1,11 +1,9 @@
-import { useTheme } from "@/components/theme-provider"
 import { useState } from "react"
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
-import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Check, Clipboard } from "lucide-react"
 
 const TwoButtonModal = () => {
-    const { theme } = useTheme();
     const [isActive, setIsActive] = useState("preview")
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () => {
@@ -16,35 +14,43 @@ const TwoButtonModal = () => {
         }, 2000)
     }
     const TwoButtonModal =
-        `
-    <div className="relative">
-                            <input type="checkbox" id="modal-toggle-two" className="hidden peer" />
+    `
+        <div className="relative">
+            <input type="checkbox" id="modal-toggle-two" className="hidden peer" />
 
-                            <label
-                                htmlFor="modal-toggle-two"
-                                className="border px-5 py-2 rounded-full text-[0.9rem] dark:hover:bg-zinc-900 hover:bg-zinc-100 cursor-pointer transition-all"
-                            >
-                                Proceed
-                            </label>
+            <label
+                htmlFor="modal-toggle-two"
+                className="border px-5 py-2 rounded-full text-[0.9rem] dark:hover:bg-zinc-900 
+                hover:bg-zinc-100 cursor-pointer transition-all"
+            >
+                Proceed
+            </label>
 
-                            <div className="fixed inset-0 hidden peer-checked:flex dark:bg-black bg-white dark:bg-opacity-75 bg-opacity-90 items-center justify-center z-50">
-                                <div className="flex flex-col items-start gap-4 max-w-80 rounded-lg border p-6 dark:bg-black bg-opacity-75">
-                                    <h2 className="text-xl font-semibold">Confirmation</h2>
-                                    <p className="text-gray-400 text-[0.85rem] mb-2">Are you sure you want to proceed with this action? This action cannot be undone.</p>
-                                    <div className="flex items-center gap-2">
-                                        <button className="border px-4 py-2 rounded-lg text-[0.8rem] dark:hover:bg-zinc-900 hover:bg-zinc-100 cursor-pointer transition-all">
-                                            Confirm
-                                        </button>
-                                        <label
-                                            htmlFor="modal-toggle-two"
-                                            className="border px-4 py-2 rounded-lg text-[0.8rem] bg-zinc-700 text-white dark:bg-zinc-200 dark:text-black hover:bg-zinc-900 dark:hover:bg-zinc-50 cursor-pointer transition-all"
-                                        >
-                                            Cancel
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div className="fixed inset-0 hidden peer-checked:flex dark:bg-black bg-white 
+            dark:bg-opacity-75 bg-opacity-90 items-center justify-center z-50">
+                <div className="flex flex-col items-start gap-4 max-w-80 rounded-lg border p-6 dark:bg-black bg-opacity-75">
+                <h2 className="text-xl font-semibold">Confirmation</h2>
+                <p className="text-gray-400 text-[0.85rem] mb-2">
+                    Are you sure you want to proceed with this action? This action cannot be undone.
+                </p>
+                <div className="flex items-center gap-2">
+                    <button className="border px-4 py-2 rounded-lg text-[0.8rem] dark:hover:bg-zinc-900 
+                    hover:bg-zinc-100 cursor-pointer transition-all">
+                    Confirm
+                    </button>
+                    <label
+                    htmlFor="modal-toggle-two"
+                    className="border px-4 py-2 rounded-lg text-[0.8rem] bg-zinc-700 text-white 
+                    dark:bg-zinc-200 dark:text-black hover:bg-zinc-900 dark:hover:bg-zinc-50 cursor-pointer 
+                    transition-all"
+                    >
+                    Cancel
+                    </label>
+                </div>
+                </div>
+            </div>
+        </div>
+
     `
 
     return (
@@ -109,12 +115,14 @@ const TwoButtonModal = () => {
                                 :
                                 <Check className="cursor-pointer w-4 h-4 absolute right-6 top-6 hover:scale-105" />}
                             <div className="p-6 text-[0.85rem] w-auto overflow-x-hidden">
-                                <SyntaxHighlighter language="javascript" style={theme == "dark" ? atomOneDark : atomOneLight} wrapLines={true} lineProps={{ style: { whiteSpace: 'pre-wrap' } }} customStyle={{
-                                    whiteSpace: 'pre-wrap',
-                                    padding: '15px',
-                                    borderRadius: '7px',
-                                    overflowX: 'hidden'
-                                }}>
+                                <SyntaxHighlighter
+                                    wrapLines
+                                    customStyle={{
+                                        backgroundColor: "transparent",
+                                        fontSize: "0.9rem"
+                                    }}
+                                    language="jsx"
+                                    style={vscDarkPlus}>
                                     {TwoButtonModal}
                                 </SyntaxHighlighter>
                             </div>
